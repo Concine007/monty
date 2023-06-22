@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 	char *co;
 	FILE *f;
 	size_t s = 0;
-	ssize_t line = 1;
+	ssize_t read_line = 1;
 	stack_t *st = NULL;
 	unsigned int cou = 0;
 
@@ -29,13 +29,13 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (line > 0)
+	while (read_line > 0)
 	{
 		co = NULL;
-		line = getline(&co, &s, f);
+		read_line = getline(&co, &s, f);
 		bus.content = co;
 		cou++;
-		if (line > 0)
+		if (read_line > 0)
 		{
 			execute(co, &st, cou, f);
 		}
