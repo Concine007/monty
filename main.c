@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 	while (line > 0)
 	{
 		co = NULL;
-		read_line = getline(&co, &s, f);
+		line = getline(&co, &s, f);
 		bus.content = co;
 		cou++;
 		if (line > 0)
